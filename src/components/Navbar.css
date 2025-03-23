@@ -1,0 +1,119 @@
+﻿/* NAVBAR CONTAINER */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space out nav items */
+    align-items: center;
+    background-color: var(--nav-bg);
+    padding: 20px 40px;
+    border-bottom: 3px solid #f5a623;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Hide Navbar on Scroll Down */
+.hidden {
+    transform: translateY(-100%); /* Moves navbar out of view */
+    opacity: 0;
+}
+
+/* Show Navbar on Scroll Up */
+.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* NAV LINKS */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #f5a623;
+}
+
+/* DARK MODE TOGGLE POSITIONING */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin-left: auto;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    width: 65px;
+    height: 34px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Toggle Circle */
+.toggle-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* Dark Mode */
+.dark-mode .navbar {
+    background-color: black !important; /* Solid black in dark mode */
+}
+
+.dark-mode .toggle-switch {
+    background-color: black;
+}
+
+.dark-mode .toggle-circle {
+    background-color: white;
+    transform: translateX(30px);
+}
+
+/* Light Mode */
+.light-mode .navbar {
+    background-color: orange !important; /* Solid orange in light mode */
+    color: black;
+}
+
+.light-mode .toggle-switch {
+    background-color: orange;
+}
+
+.light-mode .toggle-circle {
+    background-color: white;
+    transform: translateX(2px);
+}
+
+/* Prevent content from being hidden under fixed navbar */
+body {
+    padding-top: 100px;
+}
